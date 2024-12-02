@@ -146,18 +146,6 @@
                     "data_path": "$",
                     "properties": {
                         "title": "$.message"
-                    },
-                    "static_template": {
-                        "type": "AdaptiveCard",
-                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-                        "version": "1.5",
-                        "body": [
-                            {
-                                "type": "TextBlock",
-                                "text": "Events: ${if(data.events, data.events, '')}",
-                                "wrap": true
-                            }
-                        ]
                     }
                 }
             }
@@ -353,6 +341,7 @@
                     },
                     "static_template": {
                         "type": "AdaptiveCard",
+                        "$when": "${error == false}",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
                         "body": [
@@ -424,6 +413,7 @@
                     },
                     "static_template": {
                         "type": "AdaptiveCard",
+                        "$when": "${error == false}",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
                         "body": [
