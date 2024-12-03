@@ -355,7 +355,14 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Event created successfully
+                  error:
+                    type: boolean
+                    example: false
+                  data:
+                    type: object
+                    items:
+                      type: string
+                    description: Coaching Session Booked Successfully!
         '406':
           description: Credit Consumption of the user has exceeded beyond specified limit
           content:
@@ -445,8 +452,12 @@ paths:
                     type: string
                   error:
                     type: boolean
+                    example: false
                   data:
                     type: object
+                    items:
+                      type: string
+                    description: Coaching Session reschedulled Successfully!
         '400':
           description: Invalid request parameters
         '500':
