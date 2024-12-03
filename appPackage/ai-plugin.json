@@ -445,7 +445,13 @@
                         "body": [
                             {
                                 "type": "TextBlock",
-                                "text": "reply: ${if(reply, reply, 'N/A')}",
+                                "weight": "Bolder",
+                                "text": "Coachello:",
+                                "wrap": true
+                            },
+                            {
+                                "type": "TextBlock",
+                                "text": "${if(reply, reply, 'N/A')}",
                                 "wrap": true
                             }
                         ]
@@ -459,12 +465,8 @@
             "capabilities": {
                 "response_semantics": {
                     "data_path": "$",
-                    "properties": {
-                        "title": "Session booked"
-                    },
                     "static_template": {
                         "type": "AdaptiveCard",
-                        "$when": "${error == false}",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
                         "body": [
@@ -531,12 +533,8 @@
             "capabilities": {
                 "response_semantics": {
                     "data_path": "$",
-                    "properties": {
-                        "title": "Session recheduled"
-                    },
                     "static_template": {
                         "type": "AdaptiveCard",
-                        "$when": "${error == false}",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
                         "body": [
