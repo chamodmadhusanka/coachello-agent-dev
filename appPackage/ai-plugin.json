@@ -146,10 +146,24 @@
                     "data_path": "$",
                     "properties": {
                         "title": "$.message"
+                    
+                    },
+                    "static_template": {
+                        "type": "AdaptiveCard",
+                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                        "version": "1.5",
+                        "body": [
+                            {
+                                "type": "TextBlock",
+                                "text": "Events",
+                                "wrap": true
+                            }
+                        ]
                     }
                 }
             }
         },
+        
         {
             "name": "getPreviousCoaches",
             "description": "Returns a list of coaches that a specific client has previously booked.",
