@@ -146,6 +146,7 @@
                     "data_path": "$",
                     "properties": {
                         "title": "$.message"
+                    
                     },
                     "static_template": {
                         "type": "AdaptiveCard",
@@ -154,7 +155,7 @@
                         "body": [
                             {
                                 "type": "TextBlock",
-                                "text": "Events: ${if(data.events, data.events, '')}",
+                                "text": "Events",
                                 "wrap": true
                             }
                         ]
@@ -162,12 +163,122 @@
                 }
             }
         },
+        
         {
             "name": "getPreviousCoaches",
             "description": "Returns a list of coaches that a specific client has previously booked.",
             "capabilities": {
                 "response_semantics": {
-                    "data_path": "$"
+                    "data_path": "$",
+                    "static_template": {
+                        "type": "AdaptiveCard",
+                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                        "version": "1.5",
+                        "body": [
+                            {
+                                "type": "ColumnSet",
+                                "columns": [
+                                    {
+                                        "type": "Column",
+                                        "items": [
+                                            {
+                                                "type": "Image",
+                                                "style": "Person",
+                                                "url": "${data.image_url}",
+                                                "altText": "${data.first_name}",
+                                                "size": "Small"
+                                            }
+                                        ],
+                                        "width": "auto"
+                                    },
+                                    {
+                                        "type": "Column",
+                                        "items": [
+                                            {
+                                                "type": "TextBlock",
+                                                "weight": "Bolder",
+                                                "text": "${data.first_name} ${if(data.last_name, data.last_name, '')}",
+                                                "wrap": true
+                                            },
+                                            {
+                                                "type": "TextBlock",
+                                                "spacing": "None",
+                                                "text": "📍 ${data.city} (${data.timezone})",
+                                                "isSubtle": true,
+                                                "wrap": true
+                                            }
+                                        ],
+                                        "width": "stretch"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ColumnSet",
+                                "columns": [
+                                    {
+                                        "type": "Column",
+                                        "items": [
+                                            {
+                                                "type": "TextBlock",
+                                                "text": "🌐 ${data.languages}",
+                                                "wrap": true
+                                            }
+                                        ],
+                                        "width": "auto"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ColumnSet",
+                                "columns": [
+                                    {
+                                        "type": "Column",
+                                        "items": [
+                                            {
+                                                "type": "TextBlock",
+                                                "text": "**Specializations:** ${data.specializations}",
+                                                "wrap": true
+                                            }
+                                        ],
+                                        "width": "auto"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "ColumnSet",
+                                "columns": [
+                                    {
+                                        "type": "Column",
+                                        "items": [
+                                            {
+                                                "type": "TextBlock",
+                                                "text": "**Years of Coaching:** ${data.years_coaching}",
+                                                "wrap": true
+                                            },
+                                            {
+                                                "type": "TextBlock",
+                                                "text": "**Years of Experience:** ${data.years_experience}",
+                                                "wrap": true
+                                            },
+                                            {
+                                                "type": "TextBlock",
+                                                "text": "**Certified by:** ${data.certified_by}",
+                                                "wrap": true
+                                            }
+                                        ],
+                                        "width": "auto"
+                                    }
+                                ]
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "type": "Action.OpenUrl",
+                                "title": "Website",
+                                "url": "${data.website}"
+                            }
+                        ]
+                    }
                 }
             }
         },
@@ -334,7 +445,13 @@
                         "body": [
                             {
                                 "type": "TextBlock",
-                                "text": "reply: ${if(reply, reply, 'N/A')}",
+                                "weight": "Bolder",
+                                "text": "Coachello:",
+                                "wrap": true
+                            },
+                            {
+                                "type": "TextBlock",
+                                "text": "${if(reply, reply, 'N/A')}",
                                 "wrap": true
                             }
                         ]
@@ -348,9 +465,6 @@
             "capabilities": {
                 "response_semantics": {
                     "data_path": "$",
-                    "properties": {
-                        "title": "Session booked"
-                    },
                     "static_template": {
                         "type": "AdaptiveCard",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -419,9 +533,6 @@
             "capabilities": {
                 "response_semantics": {
                     "data_path": "$",
-                    "properties": {
-                        "title": "Session recheduled"
-                    },
                     "static_template": {
                         "type": "AdaptiveCard",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",

@@ -28,7 +28,7 @@
         "messageTeamMembers"
     ],
     "copilotAgents": {
-        "declarativeAgents": [            
+        "declarativeAgents": [
             {
                 "id": "declarativeAgent",
                 "file": "declarativeAgent.json"
