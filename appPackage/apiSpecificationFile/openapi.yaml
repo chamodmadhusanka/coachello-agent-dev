@@ -333,11 +333,6 @@ paths:
                   format: date-time
                   description: Start time of the event
                   example: '2024-11-04T10:00:00.000Z'
-                end_time:
-                  type: string
-                  format: date-time
-                  description: End time of the event
-                  example: '2024-11-04T11:00:00.000Z'
                 user_comment:
                   type: string
                   description: User comments associated with the event
@@ -428,11 +423,6 @@ paths:
                   format: date-time
                   description: Start time of the event created
                   example: '2024-11-04T10:00:00.000Z'
-                end_time:
-                  type: string
-                  format: date-time
-                  description: End time of the event created
-                  example: '2024-11-04T11:00:00.000Z'
                 user_comment:
                   type: string
                   description: User comments associated with the event
