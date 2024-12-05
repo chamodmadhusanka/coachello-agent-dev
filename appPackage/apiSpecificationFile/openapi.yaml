@@ -274,6 +274,7 @@ paths:
   /copilot/ai/chat/test:
     post:
       operationId: chatWithAICoach
+      x-openai-isConsequential: false
       summary: chat with AI Coach and obtain a response
       description: Returns the response of an AI Coach for a user prompt
       requestBody:

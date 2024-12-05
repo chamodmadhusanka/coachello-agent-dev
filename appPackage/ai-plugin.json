@@ -143,23 +143,7 @@
             "description": "Returns events for a coach from today and before a certain end date",
             "capabilities": {
                 "response_semantics": {
-                    "data_path": "$",
-                    "properties": {
-                        "title": "$.message"
-                    
-                    },
-                    "static_template": {
-                        "type": "AdaptiveCard",
-                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-                        "version": "1.5",
-                        "body": [
-                            {
-                                "type": "TextBlock",
-                                "text": "Events",
-                                "wrap": true
-                            }
-                        ]
-                    }
+                    "data_path": "$"
                 }
             }
         },
@@ -434,28 +418,7 @@
             "description": "Returns the response of an AI Coach for a user prompt",
             "capabilities": {
                 "response_semantics": {
-                    "data_path": "$",
-                    "properties": {
-                        "title": "$.reply"
-                    },
-                    "static_template": {
-                        "type": "AdaptiveCard",
-                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-                        "version": "1.5",
-                        "body": [
-                            {
-                                "type": "TextBlock",
-                                "weight": "Bolder",
-                                "text": "Coachello:",
-                                "wrap": true
-                            },
-                            {
-                                "type": "TextBlock",
-                                "text": "${if(reply, reply, 'N/A')}",
-                                "wrap": true
-                            }
-                        ]
-                    }
+                    "data_path": "$"
                 }
             }
         },
@@ -466,6 +429,7 @@
                 "response_semantics": {
                     "data_path": "$",
                     "static_template": {
+                        "$when" : "${error==false}",
                         "type": "AdaptiveCard",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
