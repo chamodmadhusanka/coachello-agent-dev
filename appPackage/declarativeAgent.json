@@ -11,7 +11,11 @@
         },
         {
             "title": "Start a quick AI coaching session",
-            "text": "How can I overcome challenges related to"
+            "text": "Start the AI coaching session."
+        },
+        {
+            "title": "Role play a scenario.",
+            "text": "Start the AI RolePlay session."
         },
         {
             "title": "Get upcoming meeting details.",

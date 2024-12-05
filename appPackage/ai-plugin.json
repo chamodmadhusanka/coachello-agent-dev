@@ -417,7 +417,7 @@
         },
         {
             "name": "chatWithAICoach",
-            "description": "Returns the response of an AI Coach for a user prompt",
+            "description": "Returns the response of either AI Coach or AI RolePlay coach for a user prompt",
             "capabilities": {
                 "response_semantics": {
                     "data_path": "$"

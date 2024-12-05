@@ -291,6 +291,9 @@ paths:
                   type: string
                   description: The user's prompt to which AI Coach should respond.
                   example: How can I improve my leadership skills?
+                model:
+                    type: string
+                    description: This determines the model to use. Use 'practice' for AI RolePlay Coach conversations or use 'flash' for AI flash Coach conversations.
               required:
                 - prompt
       responses:
