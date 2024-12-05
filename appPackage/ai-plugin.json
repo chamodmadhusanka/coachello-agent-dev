@@ -27,6 +27,7 @@
                         "title": "$.message"
                     },
                     "static_template": {
+                        "$when" : "${error==false}",
                         "type": "AdaptiveCard",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
@@ -155,6 +156,7 @@
                 "response_semantics": {
                     "data_path": "$",
                     "static_template": {
+                        "$when" : "${error==false}",
                         "type": "AdaptiveCard",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
@@ -429,18 +431,32 @@
                 "response_semantics": {
                     "data_path": "$",
                     "static_template": {
-                        "$when" : "${error==false}",
                         "type": "AdaptiveCard",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
                         "body": [
                             {
+                                "$when" : "${error==false}",
                                 "type": "TextBlock",
                                 "size": "Medium",
                                 "weight": "Bolder",
                                 "text": "Session Booked!"
                             },
                             {
+                                "$when" : "${error!=false}",
+                                "type": "TextBlock",
+                                "size": "Small",
+                                "weight": "Bolder",
+                                "text": "❌ Unable to Book Session!"
+                            },
+                            {
+                                "$when" : "${error!=false}",
+                                "type": "TextBlock",
+                                "text": "${message}",
+                                "wrap": true
+                            },
+                            {
+                                "$when" : "${error==false}",
                                 "type": "ColumnSet",
                                 "columns": [
                                     {
@@ -478,10 +494,12 @@
                                 ]
                             },
                             {
+                                "$when" : "${error==false}",
                                 "type": "TextBlock",
                                 "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h tt')} - ${formatDateTime(data.meeting_end_time, 'h tt')}"
                                 },
                             {
+                                "$when" : "${error==false}",
                                 "type": "TextBlock",
                                 "text": "**Description:** ${data.client_meeting_note}",
                                 "wrap": true
@@ -498,6 +516,7 @@
                 "response_semantics": {
                     "data_path": "$",
                     "static_template": {
+                        "$when" : "${error==false}",
                         "type": "AdaptiveCard",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",

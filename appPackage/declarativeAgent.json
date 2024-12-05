@@ -7,7 +7,7 @@
     "conversation_starters": [
         {
             "title": "Book a new coaching session on",
-            "text": "I need to book a new coaching session on"
+            "text": "I need to book a new coaching session with my coach on"
         },
         {
             "title": "Start a quick AI coaching session",
