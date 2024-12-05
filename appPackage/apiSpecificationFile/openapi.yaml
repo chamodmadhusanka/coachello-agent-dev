@@ -45,6 +45,7 @@ paths:
   /copilot/coach/{coach_name}:
     get:
       operationId: getCoachDetails
+      x-openai-isConsequential: false
       summary: Get details of a coach by ID
       description: >-
         Returns coach details including first name, last name, email, phone
@@ -196,6 +197,7 @@ paths:
   /copilot/upcoming-meeting:
     get:
       operationId: getUpcomingMeeting
+      x-openai-isConsequential: false
       summary: Get the upcoming meeting for a client
       description: >-
         Returns the details of the upcoming meeting scheduled for a client based
@@ -340,7 +342,6 @@ paths:
               required:
                 - coach_name
                 - event
-                - user_comment
       responses:
         '200':
           description: Event created successfully
