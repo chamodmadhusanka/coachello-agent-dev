@@ -417,7 +417,7 @@
         },
         {
             "name": "chatWithAICoach",
-            "description": "Returns the response of either AI Coach or AI RolePlay coach for a user prompt",
+            "description": "Returns the response of either AI Flash Coach or AI RolePlay coach for a user prompt",
             "capabilities": {
                 "response_semantics": {
                     "data_path": "$"
@@ -445,13 +445,14 @@
                             {
                                 "$when" : "${error!=false}",
                                 "type": "TextBlock",
-                                "size": "Small",
+                                "size": "Medium",
                                 "weight": "Bolder",
-                                "text": "❌ Unable to Book Session!"
+                                "text": "❌ Unable to book the session!"
                             },
                             {
                                 "$when" : "${error!=false}",
                                 "type": "TextBlock",
+                                "size": "Small",
                                 "text": "${message}",
                                 "wrap": true
                             },
