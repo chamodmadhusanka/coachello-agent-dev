@@ -27,12 +27,63 @@
                         "title": "$.message"
                     },
                     "static_template": {
-                        "$when" : "${error==false}",
                         "type": "AdaptiveCard",
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
                         "body": [
                             {
+                                "$when" : "${error == 'more_than_one_coach'}",
+                                "type": "TextBlock",
+                                "text": "${message}",
+                                "wrap": true
+                            },
+                            {
+                                "$when" : "${error == 'more_than_one_coach'}",
+                                "type": "Container",
+                                "items": [
+                                    {
+                                        "type": "ColumnSet",
+                                        "$data": "${data}",
+                                        "columns": [
+                                            {
+                                                "type": "Column",
+                                                "items": [
+                                                    {
+                                                        "type": "Image",
+                                                        "style": "Person",
+                                                        "url": "${image_url}",
+                                                        "altText": "${first_name}",
+                                                        "size": "Small"
+                                                    }
+                                                ],
+                                                "width": "auto"
+                                            },
+                                            {
+                                                "type": "Column",
+                                                "items": [
+                                                    {
+                                                        "type": "TextBlock",
+                                                        "weight": "Bolder",
+                                                        "text": "${first_name} ${last_name}",
+                                                        "wrap": true
+                                                    },
+                                                    {
+                                                        "type": "TextBlock",
+                                                        "spacing": "None",
+                                                        "size": "Small",
+                                                        "text": "${timezone}",
+                                                        "isSubtle": true,
+                                                        "wrap": true
+                                                    }
+                                                ],
+                                                "width": "stretch"
+                                            }
+                                        ]
+                                    }
+                                ]
+                              },
+                            {
+                                "$when" : "${error==false}",
                                 "type": "ColumnSet",
                                 "columns": [
                                     {
@@ -70,6 +121,7 @@
                                 ]
                             },
                             {
+                                "$when" : "${error==false}",
                                 "type": "ColumnSet",
                                 "columns": [
                                     {
@@ -86,6 +138,7 @@
                                 ]
                             },
                             {
+                                "$when" : "${error==false}",
                                 "type": "ColumnSet",
                                 "columns": [
                                     {
@@ -102,6 +155,7 @@
                                 ]
                             },
                             {
+                                "$when" : "${error==false}",
                                 "type": "ColumnSet",
                                 "columns": [
                                     {
@@ -130,6 +184,7 @@
                         ],
                         "actions": [
                             {
+                                "$when" : "${error==false}",
                                 "type": "Action.OpenUrl",
                                 "title": "Website",
                                 "url": "${data.website}"
@@ -144,11 +199,67 @@
             "description": "Returns events for a coach from today and before a certain end date",
             "capabilities": {
                 "response_semantics": {
-                    "data_path": "$"
+                    "data_path": "$",
+                    "static_template": {
+                        "$when" : "${error == 'more_than_one_coach'}",
+                        "type": "AdaptiveCard",
+                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                        "version": "1.5",
+                        "body": [
+                            {
+                                "type": "TextBlock",
+                                "text": "${message}",
+                                "wrap": true
+                            },
+                            {
+                                "type": "Container",
+                                "items": [
+                                    {
+                                        "type": "ColumnSet",
+                                        "$data": "${data}",
+                                        "columns": [
+                                            {
+                                                "type": "Column",
+                                                "items": [
+                                                    {
+                                                        "type": "Image",
+                                                        "style": "Person",
+                                                        "url": "${image_url}",
+                                                        "altText": "${first_name}",
+                                                        "size": "Small"
+                                                    }
+                                                ],
+                                                "width": "auto"
+                                            },
+                                            {
+                                                "type": "Column",
+                                                "items": [
+                                                    {
+                                                        "type": "TextBlock",
+                                                        "weight": "Bolder",
+                                                        "text": "${first_name} ${last_name}",
+                                                        "wrap": true
+                                                    },
+                                                    {
+                                                        "type": "TextBlock",
+                                                        "spacing": "None",
+                                                        "size": "Small",
+                                                        "text": "${timezone}",
+                                                        "isSubtle": true,
+                                                        "wrap": true
+                                                    }
+                                                ],
+                                                "width": "stretch"
+                                            }
+                                        ]
+                                    }
+                                ]
+                              }
+                        ]
+                    }
                 }
             }
         },
-        
         {
             "name": "getPreviousCoaches",
             "description": "Returns a list of coaches that a specific client has previously booked.",
@@ -435,6 +546,57 @@
                         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
                         "version": "1.5",
                         "body": [
+                            {
+                                "$when" : "${error == 'more_than_one_coach'}",
+                                "type": "TextBlock",
+                                "text": "${message}",
+                                "wrap": true
+                            },
+                            {
+                                "$when" : "${error == 'more_than_one_coach'}",
+                                "type": "Container",
+                                "items": [
+                                    {
+                                        "type": "ColumnSet",
+                                        "$data": "${data}",
+                                        "columns": [
+                                            {
+                                                "type": "Column",
+                                                "items": [
+                                                    {
+                                                        "type": "Image",
+                                                        "style": "Person",
+                                                        "url": "${image_url}",
+                                                        "altText": "${first_name}",
+                                                        "size": "Small"
+                                                    }
+                                                ],
+                                                "width": "auto"
+                                            },
+                                            {
+                                                "type": "Column",
+                                                "items": [
+                                                    {
+                                                        "type": "TextBlock",
+                                                        "weight": "Bolder",
+                                                        "text": "${first_name} ${last_name}",
+                                                        "wrap": true
+                                                    },
+                                                    {
+                                                        "type": "TextBlock",
+                                                        "spacing": "None",
+                                                        "size": "Small",
+                                                        "text": "${timezone}",
+                                                        "isSubtle": true,
+                                                        "wrap": true
+                                                    }
+                                                ],
+                                                "width": "stretch"
+                                            }
+                                        ]
+                                    }
+                                ]
+                              },
                             {
                                 "$when" : "${error==false}",
                                 "type": "TextBlock",
