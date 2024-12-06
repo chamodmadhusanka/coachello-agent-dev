@@ -344,7 +344,7 @@ paths:
                   description: User comments associated with the event
               required:
                 - coach_name
-                - event
+                - start_time
       responses:
         '200':
           description: Event created successfully
@@ -420,9 +420,6 @@ paths:
                   format: date-time
                   description: Start time of the event to be rescheduled
                   example: '2024-11-04T10:00:00.000Z'
-                coach_name:
-                  type: string
-                  description: The name of the coach
                 start_time:
                   type: string
                   format: date-time
@@ -432,9 +429,8 @@ paths:
                   type: string
                   description: User comments associated with the event
               required:
-                - coach_name
-                - event
-                - user_comment
+                - previous_start_time
+                - start_time
       responses:
         '200':
           description: Event rescheduleled successfully
