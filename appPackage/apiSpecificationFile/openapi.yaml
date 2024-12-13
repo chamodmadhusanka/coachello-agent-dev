@@ -6,7 +6,7 @@ info:
     conversational event creation.
   version: 1.0.1
 servers:
-  - url: https://api.coachello.io/api
+  - url: https://api.coachello.ngrok.io/api
     description: The repair API server
 paths:
   /copilot/cancel/booking:
