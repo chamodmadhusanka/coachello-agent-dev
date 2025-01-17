@@ -35,12 +35,5 @@
             }
         ]
     },
-    "validDomains": [
-        "teams.coachello.io",
-        "app.coachello.io",
-        "api.coachello.io",
-        "coachello.io",
-        "dashboard.coachello.io",
-        "resources.coachello.io"
-    ]
+    "validDomains": []
 }
