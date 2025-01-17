@@ -1,14 +1,19 @@
 {
     "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.2/schema.json",
     "schema_version": "v2.2",
-    "name_for_human": "Coachello",
+    "name_for_human": "Coachello Copilot Dev",
     "description_for_human": "A simple service to manage coaches and their calendars, now with conversational event creation.",
-    "namespace": "coachello",
+    "namespace": "Coachello",
     "functions": [
       {
         "name": "cancelCoachingSession",
         "description": "Returns the outcome of the cancellation process whether success or failure.",
         "capabilities": {
+          "confirmation": {
+            "type": "AdaptiveCard",
+            "title": "Cancel a Coaching Session",
+            "body": "Do you want to proceed with the cancellation of the booked session?"
+          },
           "response_semantics": {
             "data_path": "$",
             "properties": {
@@ -387,30 +392,6 @@
         }
       },
       {
-        "name": "testSystem",
-        "description": "Get test system response",
-        "capabilities": {
-          "response_semantics": {
-            "data_path": "$",
-            "properties": {
-              "title": "$.results"
-            },
-            "static_template": {
-              "type": "AdaptiveCard",
-              "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-              "version": "1.5",
-              "body": [
-                {
-                  "type": "TextBlock",
-                  "text": "results: ${if(results, results, 'N/A')}",
-                  "wrap": true
-                }
-              ]
-            }
-          }
-        }
-      },
-      {
         "name": "getUpcomingMeeting",
         "description": "Returns the details of the upcoming meeting scheduled for a client based on their time zone",
         "capabilities": {
@@ -546,6 +527,11 @@
         "name": "bookCoachingSession",
         "description": "This endpoint allows you to book a new coaching session with a coach.This endpoint would return whet",
         "capabilities": {
+          "confirmation": {
+            "type": "AdaptiveCard",
+            "title": "Book a Coaching Session",
+            "body": "Do you want to proceed with booking a coaching session?"
+          },
           "response_semantics": {
             "data_path": "$",
             "static_template": {
@@ -683,6 +669,11 @@
         "name": "rescheduleCoachingSession",
         "description": "Returns the outcome of the reschedule process whether success or failure.",
         "capabilities": {
+          "confirmation": {
+            "type": "AdaptiveCard",
+            "title": "Reschedule a Coaching Session",
+            "body": "Do you want to proceed to reschedule the coaching session?"
+          },
           "response_semantics": {
             "data_path": "$",
             "static_template": {
@@ -764,7 +755,6 @@
           "getCoachDetails",
           "getCoachEvents",
           "getPreviousCoaches",
-          "testSystem",
           "getUpcomingMeeting",
           "listRepairs",
           "chatWithAICoach",

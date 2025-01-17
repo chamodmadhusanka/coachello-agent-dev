@@ -1,8 +1,12 @@
 {
-    "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
-    "manifestVersion": "1.19",
-    "version": "1.0.5",
-    "id": "${{TEAMS_APP_ID}}",
+    "$schema": "https://developer.microsoft.com/json-schemas/teams/vDevPreview/MicrosoftTeams.schema.json",
+    "version": "2.0.0",
+    "manifestVersion": "devPreview",
+    "id": "86ed7976-1cf0-4499-bd3f-dcea63bc1789",
+    "name": {
+        "short": "Coachello Copilot Dev",
+        "full": "Coachello AI Copilot Dev"
+    },
     "developer": {
         "name": "Teams App, Inc.",
         "websiteUrl": "https://www.example.com",
@@ -13,13 +17,9 @@
         "color": "color.png",
         "outline": "outline.png"
     },
-    "name": {
-        "short": "Coachello-Dev${{APP_NAME_SUFFIX}}",
-        "full": "Full name for coachello-agent-dev"
-    },
     "description": {
-        "short": "Short description for coachello-agent-dev",
-        "full": "Full description for coachello-agent-dev"
+      "short": "Coachello’s Copilot is your professional development assistant.",
+      "full": "Coachello’s AI Copilot is a groundbreaking tool designed to revolutionize the coaching experience by combining advanced AI and human coaching capabilities.\n\nIt enables you to book coaching sessions, conduct AI coaching sessions and role play situations at work.\n\n\nWith AI Copilot, users can effortlessly book coaching sessions with world-class professionals or explore the power of AI-driven coaching sessions for personalized guidance and support. This innovative feature also allows you to role-play workplace scenarios, helping you prepare for challenging conversations, presentations, and decision-making situations. Whether you seek human connection or cutting-edge AI coaching support, Coachello’s AI Copilot provides a versatile and transformative coaching solution tailored to your needs. \n\n Coachello AI Copilot works with Microsoft 365 Copilot"
     },
     "accentColor": "#FFFFFF",
     "composeExtensions": [],
@@ -35,5 +35,12 @@
             }
         ]
     },
-    "validDomains": []
+    "validDomains": [
+        "teams.coachello.io",
+        "app.coachello.io",
+        "api.coachello.io",
+        "coachello.io",
+        "dashboard.coachello.io",
+        "resources.coachello.io"
+    ]
 }
