@@ -1,14 +1,19 @@
 {
     "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.2/schema.json",
     "schema_version": "v2.2",
-    "name_for_human": "Coachello",
+    "name_for_human": "Coachello Copilot Dev",
     "description_for_human": "A simple service to manage coaches and their calendars, now with conversational event creation.",
-    "namespace": "coachello",
+    "namespace": "Coachello",
     "functions": [
       {
         "name": "cancelCoachingSession",
         "description": "Returns the outcome of the cancellation process whether success or failure.",
         "capabilities": {
+          "confirmation": {
+            "type": "AdaptiveCard",
+            "title": "Call off a Coaching Session",
+            "body": "Do you want to proceed with calling off the booked session?"
+          },
           "response_semantics": {
             "data_path": "$",
             "properties": {
@@ -269,7 +274,7 @@
       },
       {
         "name": "getPreviousCoaches",
-        "description": "Returns a list of coaches that a specific client has previously booked.",
+        "description": "Returns most recent coach a specific client has previously booked.",
         "capabilities": {
           "response_semantics": {
             "data_path": "$",
@@ -380,30 +385,6 @@
                   "type": "Action.OpenUrl",
                   "title": "Website",
                   "url": "${data.website}"
-                }
-              ]
-            }
-          }
-        }
-      },
-      {
-        "name": "testSystem",
-        "description": "Get test system response",
-        "capabilities": {
-          "response_semantics": {
-            "data_path": "$",
-            "properties": {
-              "title": "$.results"
-            },
-            "static_template": {
-              "type": "AdaptiveCard",
-              "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-              "version": "1.5",
-              "body": [
-                {
-                  "type": "TextBlock",
-                  "text": "results: ${if(results, results, 'N/A')}",
-                  "wrap": true
                 }
               ]
             }
@@ -544,8 +525,13 @@
       },
       {
         "name": "bookCoachingSession",
-        "description": "This endpoint allows you to book a new coaching session with a coach.This endpoint would return whet",
+        "description": "Returns the outcome of booking a coaching session with a coach, whether success or failure",
         "capabilities": {
+          "confirmation": {
+            "type": "AdaptiveCard",
+            "title": "Book a Coaching Session",
+            "body": "Do you want to proceed with booking a coaching session?"
+          },
           "response_semantics": {
             "data_path": "$",
             "static_template": {
@@ -683,6 +669,11 @@
         "name": "rescheduleCoachingSession",
         "description": "Returns the outcome of the reschedule process whether success or failure.",
         "capabilities": {
+          "confirmation": {
+            "type": "AdaptiveCard",
+            "title": "Reschedule a Coaching Session",
+            "body": "Do you want to proceed to reschedule the coaching session?"
+          },
           "response_semantics": {
             "data_path": "$",
             "static_template": {
@@ -764,7 +755,6 @@
           "getCoachDetails",
           "getCoachEvents",
           "getPreviousCoaches",
-          "testSystem",
           "getUpcomingMeeting",
           "listRepairs",
           "chatWithAICoach",
@@ -776,19 +766,19 @@
     "capabilities": {
       "conversation_starters": [
         {
-          "text": "cancel an booked event at a specific starting time"
+          "text": "cancel a booked event at a specific starting time"
         },
         {
-          "text": "Get details of a coach by ID"
+          "text": "Get details of a coach by name"
         },
         {
           "text": "Get events for a coach by date range"
         },
         {
-          "text": "Retrieve a list of previous coaches for a client"
+          "text": "Retrieve the previously booked coach for a client"
         },
         {
-          "text": "Get test system response"
+          "text": "Get the upcoming meeting for a client"
         }
       ]
     }
