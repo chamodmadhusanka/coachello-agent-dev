@@ -22,9 +22,9 @@
     },
     "developer": {
         "name": "Coachello Dev Team",
-        "websiteUrl": "https://www.example.com",
-        "privacyUrl": "https://www.example.com/privacy",
-        "termsOfUseUrl": "https://www.example.com/termofuse"
+        "websiteUrl": "https://coachello.ai",
+        "privacyUrl": "https://coachello.ai/privacy-policy/",
+        "termsOfUseUrl": "https://coachello.ai/terms-and-conditions/"
     },
     "icons": {
         "color": "color.png",
