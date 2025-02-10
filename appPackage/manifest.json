@@ -36,6 +36,10 @@
     },
     "accentColor": "#FFFFFF",
     "validDomains": [],
+    "webApplicationInfo": {
+      "id": "dd73c506-52b6-4d7e-9eca-42087d414af1",
+      "resource": "api://auth-5a1037d0-0e3d-44cb-a62b-4e321a83868d/dd73c506-52b6-4d7e-9eca-42087d414af1"
+    },
     "copilotAgents": {
         "declarativeAgents": [
             {
