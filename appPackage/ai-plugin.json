@@ -45,8 +45,7 @@
                   "$when": "${error == 'more_than_one_coach'}",
                   "type": "TextBlock",
                   "text": "${message}",
-                  "wrap": true,
-                  "style": "wordBreak"
+                  "wrap": true
                 },
                 {
                   "$when": "${error == 'more_than_one_coach'}",
@@ -161,7 +160,7 @@
                           "wrap": true
                         }
                       ],
-                      "width": "auto"
+                      "width": "stretch"
                     }
                   ]
                 },
