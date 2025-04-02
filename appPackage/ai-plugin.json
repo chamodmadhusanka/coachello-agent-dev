@@ -16,8 +16,75 @@
           },
           "response_semantics": {
             "data_path": "$",
-            "properties": {
-              "title": "$.message"
+            "static_template": {
+              "type": "AdaptiveCard",
+              "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+              "version": "1.5",
+              "body": [
+                {
+                  "$when": "${error==false}",
+                  "type": "TextBlock",
+                  "size": "Medium",
+                  "weight": "Bolder",
+                  "text": "Session Cancelled!"
+                },
+                {
+                  "$when": "${error!=false}",
+                  "type": "TextBlock",
+                  "size": "Small",
+                  "text": "${message}",
+                  "wrap": true
+                },
+                {
+                  "$when": "${error==false}",
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "Image",
+                          "style": "Person",
+                          "url": "${data.coach_avatar}",
+                          "altText": "${data.coach_name}",
+                          "size": "Small"
+                        }
+                      ],
+                      "width": "auto"
+                    },
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "weight": "Bolder",
+                          "text": "${data.coach_name}",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "spacing": "None",
+                          "text": "${data.coach_time_zone}",
+                          "isSubtle": true,
+                          "wrap": true
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                },
+                {
+                  "$when": "${error==false}",
+                  "type": "TextBlock",
+                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h tt')} - ${formatDateTime(data.meeting_end_time, 'h tt')}"
+                },
+                {
+                  "$when": "${error==false}",
+                  "type": "TextBlock",
+                  "text": "**Description:** ${data.client_meeting_note}",
+                  "wrap": true
+                }
+              ]
             }
           }
         }
