@@ -12,7 +12,7 @@ paths:
   /copilot/cancel/booking:
     delete:
       operationId: cancelCoachingSession
-      summary: cancel a booked event at a specific starting time
+      summary: Cancel a booked event at a specific starting time
       description: >-
         Returns the outcome of the cancellation process whether success or
         failure.
