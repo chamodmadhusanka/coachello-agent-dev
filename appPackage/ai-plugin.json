@@ -80,7 +80,7 @@
                 {
                   "$when": "${error==false}",
                   "type": "TextBlock",
-                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h tt')} - ${formatDateTime(data.meeting_end_time, 'h tt')}"
+                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h:mm tt')} - ${formatDateTime(data.meeting_end_time, 'h:mm tt')}"
                 },
                 {
                   "$when": "${error==false}",
@@ -564,7 +564,7 @@
                 },
                 {
                   "type": "TextBlock",
-                  "text": "📅 ${formatDateTime(meeting_start_time, 'dd MMMM - h tt')} - ${formatDateTime(meeting_end_time, 'h tt')}"
+                  "text": "📅 ${formatDateTime(meeting_start_time, 'dd MMMM - h:mm tt')} - ${formatDateTime(meeting_end_time, 'h:mm tt')}"
                 },
                 {
                   "type": "TextBlock",
@@ -727,7 +727,7 @@
                 {
                   "$when": "${error==false}",
                   "type": "TextBlock",
-                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h tt')} - ${formatDateTime(data.meeting_end_time, 'h tt')}"
+                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h:mm tt')} - ${formatDateTime(data.meeting_end_time, 'h:mm tt')}"
                 },
                 {
                   "$when": "${error==false}",
@@ -806,7 +806,7 @@
                 },
                 {
                   "type": "TextBlock",
-                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h tt')} - ${formatDateTime(data.meeting_end_time, 'h tt')}"
+                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h:mm tt')} - ${formatDateTime(data.meeting_end_time, 'h:mm tt')}"
                 },
                 {
                   "type": "TextBlock",
