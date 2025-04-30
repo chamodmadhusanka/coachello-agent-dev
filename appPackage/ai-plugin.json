@@ -17,7 +17,78 @@
           "response_semantics": {
             "data_path": "$",
             "properties": {
-              "title": "$.message"
+              "title": "$.data.coach_name",
+              "subtitle": "$.message"
+            },
+            "static_template": {
+              "type": "AdaptiveCard",
+              "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+              "version": "1.5",
+              "body": [
+                {
+                  "$when": "${error==false}",
+                  "type": "TextBlock",
+                  "size": "Medium",
+                  "weight": "Bolder",
+                  "text": "Session Cancelled!"
+                },
+                {
+                  "$when": "${error!=false}",
+                  "type": "TextBlock",
+                  "size": "Small",
+                  "text": "${message}",
+                  "wrap": true
+                },
+                {
+                  "$when": "${error==false}",
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "Image",
+                          "style": "Person",
+                          "url": "${data.coach_avatar}",
+                          "altText": "${data.coach_name}",
+                          "size": "Small"
+                        }
+                      ],
+                      "width": "auto"
+                    },
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "weight": "Bolder",
+                          "text": "${data.coach_name}",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "spacing": "None",
+                          "text": "${data.coach_time_zone}",
+                          "isSubtle": true,
+                          "wrap": true
+                        }
+                      ],
+                      "width": "stretch"
+                    }
+                  ]
+                },
+                {
+                  "$when": "${error==false}",
+                  "type": "TextBlock",
+                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h:mm tt')} - ${formatDateTime(data.meeting_end_time, 'h:mm tt')}"
+                },
+                {
+                  "$when": "${error==false}",
+                  "type": "TextBlock",
+                  "text": "**Description:** ${data.client_meeting_note}",
+                  "wrap": true
+                }
+              ]
             }
           }
         }
@@ -33,6 +104,10 @@
           },
           "response_semantics": {
             "data_path": "$",
+            "properties": {
+              "title": "$.message",
+              "subtitle": "$.data.first_name"
+            },
             "static_template": {
               "type": "AdaptiveCard",
               "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -212,6 +287,10 @@
           },
           "response_semantics": {
             "data_path": "$",
+            "properties": {
+              "title": "$.message",
+              "subtitle": "$.data.coach_time_zone"
+            },
             "static_template": {
               "type": "AdaptiveCard",
               "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -220,7 +299,20 @@
                 {
                   "$when" : "${error == false}",
                   "type": "TextBlock",
+                  "size": "Medium",
+                  "weight": "Bolder",
+                  "text": "Coach Availability Hours"
+                },
+                {
+                  "$when" : "${error == false}",
+                  "type": "TextBlock",
                   "text": "⏰ Please note that coaches are available exclusively between 7:00 AM and 9:00 PM. Kindly ensure to select a time slot within these hours.",
+                  "wrap": true
+                },
+                {
+                  "$when" : "${error == false}",
+                  "type": "TextBlock",
+                  "text": "**Coach Timezone:** ${data.coach_time_zone}",
                   "wrap": true
                 },
                 {
@@ -290,6 +382,10 @@
           },
           "response_semantics": {
             "data_path": "$",
+            "properties": {
+              "title": "$.message",
+              "subtitle": "$.data.first_name"
+            },
             "static_template": {
               "$when": "${error==false}",
               "type": "AdaptiveCard",
@@ -415,8 +511,8 @@
           "response_semantics": {
             "data_path": "$",
             "properties": {
-              "title": "$.meeting.title",
-              "subtitle": "$.meeting.description"
+              "title": "$.coach_name",
+              "subtitle": "$.client_meeting_note"
             },
             "static_template": {
               "type": "AdaptiveCard",
@@ -468,7 +564,7 @@
                 },
                 {
                   "type": "TextBlock",
-                  "text": "📅 ${formatDateTime(meeting_start_time, 'dd MMMM - h tt')} - ${formatDateTime(meeting_end_time, 'h tt')}"
+                  "text": "📅 ${formatDateTime(meeting_start_time, 'dd MMMM - h:mm tt')} - ${formatDateTime(meeting_end_time, 'h:mm tt')}"
                 },
                 {
                   "type": "TextBlock",
@@ -490,7 +586,11 @@
             "body": "Do you want to talk with Coachello AI Coach?"
           },
           "response_semantics": {
-            "data_path": "$"
+            "data_path": "$",
+            "properties": {
+              "title": "$.message",
+              "subtitle": "$.reply"
+            }
           }
         }
       },
@@ -505,6 +605,10 @@
           },
           "response_semantics": {
             "data_path": "$",
+            "properties": {
+              "title": "$.data.coach_name",
+              "subtitle": "$.message"
+            },
             "static_template": {
               "type": "AdaptiveCard",
               "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -623,7 +727,7 @@
                 {
                   "$when": "${error==false}",
                   "type": "TextBlock",
-                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h tt')} - ${formatDateTime(data.meeting_end_time, 'h tt')}"
+                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h:mm tt')} - ${formatDateTime(data.meeting_end_time, 'h:mm tt')}"
                 },
                 {
                   "$when": "${error==false}",
@@ -647,6 +751,10 @@
           },
           "response_semantics": {
             "data_path": "$",
+            "properties": {
+              "title": "$.data.coach_name",
+              "subtitle": "$.message"
+            },
             "static_template": {
               "$when": "${error==false}",
               "type": "AdaptiveCard",
@@ -698,7 +806,7 @@
                 },
                 {
                   "type": "TextBlock",
-                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h tt')} - ${formatDateTime(data.meeting_end_time, 'h tt')}"
+                  "text": "📅 ${formatDateTime(data.meeting_start_time, 'dd MMMM - h:mm tt')} - ${formatDateTime(data.meeting_end_time, 'h:mm tt')}"
                 },
                 {
                   "type": "TextBlock",
@@ -736,7 +844,7 @@
     "capabilities": {
       "conversation_starters": [
         {
-          "text": "cancel a booked event at a specific starting time"
+          "text": "Cancel a booked event at a specific starting time"
         },
         {
           "text": "Get details of a coach by name"
