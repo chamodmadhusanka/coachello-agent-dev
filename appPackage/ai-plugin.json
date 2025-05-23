@@ -277,8 +277,8 @@
         }
       },
       {
-        "name": "getCoachEvents",
-        "description": "Returns events for a coach from today and before a certain end date",
+        "name": "getCoachAvailableTimes",
+        "description": "Returns available time slots of coach from today and before a certain end date",
         "capabilities": {
           "confirmation": {
             "type": "AdaptiveCard",
@@ -832,7 +832,7 @@
         "run_for_functions": [
           "cancelCoachingSession",
           "getCoachDetails",
-          "getCoachEvents",
+          "getCoachAvailableTimes",
           "getPreviousCoaches",
           "getUpcomingMeeting",
           "chatWithAICoach",
@@ -850,7 +850,7 @@
           "text": "Get details of a coach by name"
         },
         {
-          "text": "Get events for a coach by date range"
+          "text": "Get available time of a coach by date range"
         },
         {
           "text": "Retrieve the previously booked coach for a client"

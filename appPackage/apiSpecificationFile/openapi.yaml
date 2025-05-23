@@ -88,12 +88,12 @@ paths:
                         type: string
         "404":
           description: Coach not found
-  /copilot/coach/events:
+  /copilot/coach/available-slots:
     get:
-      operationId: getCoachEvents
+      operationId: getCoachAvailableTimes
       x-openai-isConsequential: false
-      summary: Get events for a coach by date range
-      description: Returns events for a coach from today and before a certain end date
+      summary: Get available time of a coach by date range
+      description: Returns available time slots of coach from today and before a certain end date
       parameters:
         - name: coach_name
           in: query
