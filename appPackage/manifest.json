@@ -1,6 +1,6 @@
 {
     "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
-    "version": "3.0.1",
+    "version": "3.0.4",
     "manifestVersion": "1.19",
     "id": "86ed7976-1cf0-4499-bd3f-dcea63bc1789",
     "localizationInfo": {
@@ -22,7 +22,7 @@
         "full": "Coachello AI Copilot Dev"
     },
     "developer": {
-        "name": "Coachello Dev Team",
+        "name": "Coachello",
         "websiteUrl": "https://coachello.ai",
         "privacyUrl": "https://coachello.ai/privacy-policy/",
         "termsOfUseUrl": "https://coachello.ai/terms-and-conditions/"
